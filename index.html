@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Server Progress | Loka Style</title>
+    <title>Server Progress | Arkantara Team</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,25 +27,39 @@
             max-width: 450px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
-            padding: 40px 30px;
+            padding: 50px 30px;
             border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             text-align: center;
         }
 
-        /* Styling Logo */
         .server-logo {
-            width: 120px; /* Ukuran logo */
+            width: 120px;
             height: auto;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.2));
-            animation: float 3s ease-in-out infinite; /* Biar logo melayang halus */
+            animation: float 3s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
+        }
+
+        .collab-text {
+            font-size: 10px;
+            color: #aaa;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .collab-names {
+            color: #fff;
+            font-weight: 600;
+            display: block;
+            margin-top: 4px;
         }
 
         h1 {
@@ -59,7 +73,7 @@
         .subtitle {
             font-size: 12px;
             color: #bbb;
-            margin-bottom: 35px;
+            margin-bottom: 40px;
         }
 
         .progress-wrapper {
@@ -97,20 +111,21 @@
         }
 
         .footer {
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 11px;
             color: #888;
         }
 
-        .ip-badge {
+        .copyright-badge {
             display: inline-block;
             margin-top: 15px;
-            padding: 6px 15px;
+            padding: 8px 20px;
             background: rgba(255,255,255,0.05);
             border-radius: 50px;
-            font-family: monospace;
+            font-size: 10px;
             color: #fff;
-            border: 1px solid rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.1);
+            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -119,6 +134,11 @@
 <div class="container">
     <img src="https://files.catbox.moe/h2jdo5.png" alt="Logo Server" class="server-logo">
     
+    <div class="collab-text">
+        In Collaboration With:
+        <span class="collab-names">LokaSMP & Egs SMP</span>
+    </div>
+
     <h1>Development Progress</h1>
     <p class="subtitle">Membangun dunia impian untukmu.</p>
 
@@ -134,12 +154,12 @@
 
     <div class="footer">
         ESTIMATED LAUNCH: <b>MARET 2026</b><br>
-        <div class="ip-badge">ARKANTARA TEAM</div>
+        <div class="copyright-badge">© 2026 ARKANTARA TEAM. ALL RIGHTS RESERVED.</div>
     </div>
 </div>
 
 <script>
-    const progressGoal = 18; // GANTI ANGKA PROGRESS DI SINI
+    const progressGoal = 18; 
 
     window.onload = () => {
         const bar = document.getElementById('main-bar');
