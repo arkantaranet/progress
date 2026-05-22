@@ -15,11 +15,30 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), 
-                        url('https://files.catbox.moe/0ap8rn.mp4');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            position: relative;
+            overflow: hidden; /* Mencegah scrollbar muncul akibat video */
+        }
+
+        /* Styling untuk background video */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Membuat video memenuhi layar tanpa merusak rasio */
+            z-index: -2; /* Berada di paling belakang */
+        }
+
+        /* Overlay gelap agar teks lebih mudah dibaca (menggantikan linear-gradient yang lama) */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: -1; /* Di atas video, tapi di bawah konten */
         }
 
         .container {
@@ -27,11 +46,13 @@
             max-width: 450px;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px); /* Dukungan untuk Safari */
             padding: 50px 30px;
             border-radius: 30px;
             border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             text-align: center;
+            position: relative; /* Menjamin container tetap di atas overlay */
         }
 
         .server-logo {
@@ -130,6 +151,13 @@
     </style>
 </head>
 <body>
+
+<video class="video-background" autoplay loop muted playsinline>
+    <source src="https://files.catbox.moe/0ap8rn.mp4" type="video/mp4">
+    Browser Anda tidak mendukung video background.
+</video>
+
+<div class="video-overlay"></div>
 
 <div class="container">
     <img src="https://files.catbox.moe/h2jdo5.png" alt="Logo Server" class="server-logo">
